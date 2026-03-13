@@ -1,0 +1,37 @@
+apiVersion: s3.services.k8s.aws/v1alpha1
+kind: Bucket
+metadata:
+  name: team-b-webapp-development
+  namespace: team-b
+  labels:
+    team: team-b
+    environment: development
+    cost-center: webapp-1010
+    managed-by: backstage
+    provisioner: ack
+spec:
+  name: team-b-webapp-development
+  
+  versioningConfiguration:
+    status: Enabled
+  
+  serverSideEncryptionConfiguration:
+    rules:
+      - applyServerSideEncryptionByDefault:
+          sseAlgorithm: aws:kms
+  publicAccessBlockConfiguration:
+    blockPublicAcls: true
+    blockPublicPolicy: true
+    ignorePublicAcls: true
+    restrictPublicBuckets: true
+  tags:
+    - key: team
+      value: team-b
+    - key: environment
+      value: development
+    - key: cost-center
+      value: webapp-1010
+    - key: managed-by
+      value: backstage-ack
+    - key: project
+      value: webapp

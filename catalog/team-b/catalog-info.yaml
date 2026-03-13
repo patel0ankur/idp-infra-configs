@@ -1,0 +1,24 @@
+apiVersion: backstage.io/v1alpha1
+kind: Resource
+metadata:
+  name: team-b-webapp-development-bucket
+  description: "S3 bucket for webapp (development) — provisioned via Backstage/ACK"
+  annotations:
+    backstage.io/managed-by-location: "url:https://github.com/patel0ankur/idp-infra-configs/blob/main/teams/team-b/infra/s3-bucket.yaml"
+    backstage.io/managed-by-origin-location: "url:https://github.com/patel0ankur/idp-infra-configs/blob/main/teams/team-b/infra/s3-bucket.yaml"
+  labels:
+    team: team-b
+    environment: development
+    cost-center: webapp-1010
+    provisioner: ack
+  tags:
+    - s3
+    - aws
+    - ack
+    - development
+spec:
+  type: s3-bucket
+  owner: group:team-b
+  lifecycle: production
+  system: team-b-infrastructure
+  dependencyOf: []
