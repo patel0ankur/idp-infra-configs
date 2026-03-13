@@ -6,6 +6,8 @@ metadata:
   annotations:
     backstage.io/managed-by-location: "url:https://github.com/patel0ankur/idp-infra-configs/blob/main/teams/team-b/infra/s3-bucket.yaml"
     backstage.io/managed-by-origin-location: "url:https://github.com/patel0ankur/idp-infra-configs/blob/main/teams/team-b/infra/s3-bucket.yaml"
+    # ArgoCD tab — shows sync status, health, deployment history for team-b Application
+    argocd/app-name: "team-b"
     aws/resource-type: "S3 Bucket"
     aws/bucket-name: "team-b-webapp-development"
     aws/region: "us-east-1"
