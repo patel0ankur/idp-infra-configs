@@ -1,0 +1,36 @@
+apiVersion: argoproj.io/v1alpha1
+kind: ApplicationSet
+metadata:
+  name: idp-team-apps
+  namespace: argocd
+spec:
+  generators:
+    - git:
+        repoURL: https://github.com/patel0ankur/idp-infra-configs
+        revision: HEAD
+        directories:
+          - path: teams/*
+  template:
+    metadata:
+      # Application name = team directory name (e.g. teams/team-a → "team-a")
+      name: '{{path.basename}}'
+      annotations:
+        # Link back to the Backstage catalog entity
+        backstage.io/kubernetes-id: '{{path.basename}}'
+    spec:
+      project: default
+      source:
+        repoURL: https://github.com/patel0ankur/idp-infra-configs
+        targetRevision: HEAD
+        path: '{{path}}'
+      destination:
+        server: https://kubernetes.default.svc
+        # Each team gets their own namespace
+        namespace: '{{path.basename}}'
+      syncPolicy:
+        automated:
+          prune: true      # Remove resources deleted from Git
+          selfHeal: true   # Re-sync if someone manually changes cluster state
+        syncOptions:
+          - CreateNamespace=true   # Auto-create team namespace if it doesn't exist
+          - ServerSideApply=true   # Required for ACK CRs with large metadata
