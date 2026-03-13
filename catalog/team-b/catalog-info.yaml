@@ -6,6 +6,17 @@ metadata:
   annotations:
     backstage.io/managed-by-location: "url:https://github.com/patel0ankur/idp-infra-configs/blob/main/teams/team-b/infra/s3-bucket.yaml"
     backstage.io/managed-by-origin-location: "url:https://github.com/patel0ankur/idp-infra-configs/blob/main/teams/team-b/infra/s3-bucket.yaml"
+    aws/resource-type: "S3 Bucket"
+    aws/bucket-name: "team-b-webapp-development"
+    aws/region: "us-east-1"
+    aws/console-url: "https://s3.console.aws.amazon.com/s3/buckets/team-b-webapp-development"
+  links:
+    - url: "https://s3.console.aws.amazon.com/s3/buckets/team-b-webapp-development"
+      title: "View in AWS S3 Console"
+      icon: dashboard
+    - url: "https://github.com/patel0ankur/idp-infra-configs/blob/main/teams/team-b/infra/s3-bucket.yaml"
+      title: "View ACK Manifest (GitHub)"
+      icon: github
   labels:
     team: team-b
     environment: development
