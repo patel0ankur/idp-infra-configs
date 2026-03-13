@@ -23,6 +23,8 @@ spec:
         repoURL: https://github.com/patel0ankur/idp-infra-configs
         targetRevision: HEAD
         path: '{{path}}'
+        directory:
+          recurse: true    # Scan all subdirectories (e.g. teams/team-a/infra/)
       destination:
         # Use the EKS cluster ARN as registered in ArgoCD
         server: arn:aws:eks:us-east-1:590443650088:cluster/eksBackstage
