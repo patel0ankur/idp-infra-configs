@@ -24,7 +24,8 @@ spec:
         targetRevision: HEAD
         path: '{{path}}'
       destination:
-        server: https://kubernetes.default.svc
+        # Use the EKS cluster ARN as registered in ArgoCD
+        server: arn:aws:eks:us-east-1:590443650088:cluster/eksBackstage
         # Each team gets their own namespace
         namespace: '{{path.basename}}'
       syncPolicy:
