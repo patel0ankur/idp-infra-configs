@@ -36,4 +36,4 @@ spec:
           selfHeal: true   # Re-sync if someone manually changes cluster state
         syncOptions:
           - CreateNamespace=true   # Auto-create team namespace if it doesn't exist
-          # ServerSideApply removed — ACK CRD schema doesn't declare all fields (e.g. tags)
+          - Validate=false         # Skip schema validation — ACK CRDs have incomplete OpenAPI schemas
