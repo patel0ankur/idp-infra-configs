@@ -1,2 +1,5 @@
 # Backstage catalog entity files — not Kubernetes resources, exclude from ArgoCD sync
 **/catalog-info.yaml
+
+# catalog/ directory contains Backstage Resource entities only — not K8s resources
+catalog/
