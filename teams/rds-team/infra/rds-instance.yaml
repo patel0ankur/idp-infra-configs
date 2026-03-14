@@ -13,7 +13,7 @@ spec:
   dbInstanceIdentifier: rds-team-mydb-development
   dbInstanceClass: db.t3.medium
   engine: postgres
-  engineVersion: "15.4"
+  engineVersion: "15.17"
   masterUsername: appuser
   masterUserPassword:
     namespace: rds-team
