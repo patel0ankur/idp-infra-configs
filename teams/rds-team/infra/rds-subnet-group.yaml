@@ -10,7 +10,7 @@ metadata:
     provisioner: ack
 spec:
   name: rds-team-mydb-development-subnet-group
-  description: "Subnet group for mydb (development) — managed by Backstage/ACK"
+  description: "Subnet group for mydb (development) - managed by Backstage/ACK"
   # Private subnets from the platform VPC (set by platform team in this template)
   # Developers don't need to know these — the template handles it automatically
   subnetIDs:
