@@ -6,32 +6,29 @@ metadata:
   labels:
     team: team-c
     environment: development
-    cost-center: teac-c1010
+    cost-center: eng-001
     managed-by: backstage
     provisioner: ack
 spec:
   name: team-c-webapp-development
-  
-  versioningConfiguration:
-    status: Enabled
-  
-  serverSideEncryptionConfiguration:
+  encryption:
     rules:
       - applyServerSideEncryptionByDefault:
           sseAlgorithm: aws:kms
-  publicAccessBlockConfiguration:
+  publicAccessBlock:
     blockPublicAcls: true
     blockPublicPolicy: true
     ignorePublicAcls: true
     restrictPublicBuckets: true
-  tags:
-    - key: team
-      value: team-c
-    - key: environment
-      value: development
-    - key: cost-center
-      value: teac-c1010
-    - key: managed-by
-      value: backstage-ack
-    - key: project
-      value: webapp
+  tagging:
+    tagSet:
+      - key: team
+        value: team-c
+      - key: environment
+        value: development
+      - key: cost-center
+        value: eng-001
+      - key: managed-by
+        value: backstage-ack
+      - key: project
+        value: webapp
